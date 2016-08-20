@@ -4,7 +4,7 @@
   "description": "A scene editor for custom Game engine",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron ./dist/main.js",
     "postinstall": "typings install"
   },
   "keywords": [
