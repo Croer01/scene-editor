@@ -7,4 +7,13 @@ window.addEventListener('keydown',(event:KeyboardEvent)=>{
     if(event.keyCode === 123){
         ipcRenderer.send("toggle-devtools",true);
     }
+
+    if(event.keyCode === 116){
+        ipcRenderer.send("refresh-ignore-cache",true);
+    }
 });
+
+//angular application
+global["jQuery"] = require('./../node_modules/jquery/dist/jquery');
+require('./../node_modules/bootstrap/dist/js/npm');
+require('./app/app');
