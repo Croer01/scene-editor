@@ -1,7 +1,11 @@
 const electron = require('electron');
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-const Menu = electron.Menu;
+const {app} = electron;
+const {BrowserWindow} = electron;
+
+import {menuTemplate} from './menu'
+const {Menu} = electron;
+
+const {ipcMain} = electron;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -12,14 +16,17 @@ function createWindow () {
   mainWindow.loadURL(`file://${__dirname}/index.html`);
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools({mode:'undocked'});
-  mainWindow.webContents.on('devtools-opened', mainWindow.focus);
+    ipcMain.on("toggle-devtools",(event, arg) => {
+        mainWindow.webContents.toggleDevTools();
+    });
+  // mainWindow.webContents.openDevTools({mode:'undocked'});
+  // mainWindow.webContents.on('devtools-opened', mainWindow.focus);
 
 
   mainWindow.on('closed', function () {
     mainWindow = null
   });
-  Menu.setApplicationMenu(Menu.buildFromTemplate());
+  Menu.setApplicationMenu(Menu.buildFromTemplate(menuTemplate));
 }
 
 app.on('ready', createWindow);
