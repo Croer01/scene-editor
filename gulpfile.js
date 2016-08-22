@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var del = require('del');
 var gulpSequence = require('gulp-sequence');
+var sourcemaps = require('gulp-sourcemaps');
 
 var paths = {
     src: "src",
@@ -11,7 +12,9 @@ gulp.task('ts', function () {
     var ts = require('gulp-typescript');
     var project = ts.createProject('tsconfig.json');
     return project.src()
+        .pipe(sourcemaps.init())
         .pipe(ts(project))
+        .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest(paths.dist));
 });
 
