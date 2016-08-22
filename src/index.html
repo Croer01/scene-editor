@@ -7,10 +7,11 @@
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
-<my-app>Loading...</my-app>
+<app-root>Loading...</app-root>
 <script>
-	// You can also require other files to run in this process
 	require('./renderer.js');
+	//this is a trick to get base path of application
+	document.write('<base href="' + __dirname + '" />');
 </script>
 </body>
 </html>
