@@ -37,7 +37,8 @@ export var menuTemplate = [
             }
         }, {
             label: 'Save',
-            accelerator: 'CmdOrCtrl+S'
+            accelerator: 'CmdOrCtrl+S',
+            enabled:false
         }]
     }
 ];
