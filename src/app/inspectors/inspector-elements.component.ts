@@ -1,21 +1,35 @@
 /**
  * Created by Adria on 21/08/2016.
  */
-import {Component} from '@angular/core';
-import {SceneLoader} from "../scene-data/scene-loader";
+import {Component, OnInit, OnDestroy, NgZone} from '@angular/core';
+import {SceneLoader} from "../scene-data/scene-loader.service";
 import {WorldElement} from "../scene-data/WorldElement";
-import {Scene} from "../scene-data/Scene";
+import {Subscription} from "rxjs/Subscription";
+import {InspectorService} from "./inspector.service";
 
 @Component({
     selector: 'inspector-elements',
-    template: `<div *ngFor="let element of elements">{{element.name}}</div>`
+    template: `<element-selector *ngFor="let element of elements" [element]="element"></element-selector>`
 })
-export class InspectorElementsComponent {
-    private elements:WorldElement[];
+export class InspectorElementsComponent implements OnInit, OnDestroy {
 
-    constructor(private sceneLoader:SceneLoader) {
-        sceneLoader.scene.then((scene)=> {
-            this.elements = scene.elements;
+    private elements:WorldElement[];
+    private subscription:Subscription;
+
+    constructor(private ngZone:NgZone,
+                private sceneLoader:SceneLoader,
+                private inspector:InspectorService) {
+    }
+
+    ngOnInit():void {
+        this.subscription = this.sceneLoader.sceneObserver.subscribe(scene => {
+            //force angular to check changes for "ngFor" related array (Beta Issue?)
+            this.ngZone.run(() => this.elements = scene.elements);
+            this.inspector.setTarget(null);
         });
+    }
+
+    ngOnDestroy():void {
+        this.subscription.unsubscribe();
     }
 }

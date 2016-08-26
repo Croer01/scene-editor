@@ -3,7 +3,6 @@
  */
 import {SceneData} from "./interfaces/SceneData";
 import {WorldElement} from "./WorldElement";
-import {WorldElementData} from "./interfaces/WorldElementData";
 
 export class Scene {
     private _name:string;
