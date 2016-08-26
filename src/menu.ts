@@ -27,7 +27,7 @@ export var menuTemplate = [
 
                         try {
                             let doc = yaml.safeLoad(fs.readFileSync(filename, 'utf8'));
-                            browserWindow.send('scene-load-success', doc);
+                            browserWindow.send('scene-load-success', {filename: filename,sceneData:doc});
                         } catch (e) {
                             browserWindow.send('scene-load-fail', e);
                             console.log(e);
