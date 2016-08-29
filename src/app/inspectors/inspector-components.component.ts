@@ -8,7 +8,8 @@ import {Subscription} from "rxjs/Subscription";
 
 @Component({
     selector: 'inspector-components',
-    template: `<div>components of {{target?.name}}</div>`
+    template: `<div>components of {{target?.name}}</div>
+<generic-component *ngFor="let component of target?.components" [component]="component"></generic-component>`
 })
 export class InspectorComponentsComponent implements OnDestroy {
     private target;

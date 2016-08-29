@@ -15,6 +15,7 @@ import {SceneEditorComponent} from "./scene-editor/scene-editor.component";
 import {EmptyEditorComponent} from "./scene-editor/empty-editor.component";
 import {ElementSelectorComponent} from "./inspectors/element-selector.component";
 import {InspectorService} from "./inspectors/inspector.service";
+import {GenericComponentComponent} from "./inspectors/generic-component.component";
 
 @NgModule(<NgModuleMetadataType>{
     imports: [
@@ -33,7 +34,8 @@ import {InspectorService} from "./inspectors/inspector.service";
         MainContentComponent,
         InspectorComponentsComponent,
         InspectorElementsComponent,
-        ElementSelectorComponent
+        ElementSelectorComponent,
+        GenericComponentComponent
     ],
     bootstrap: [AppRootComponent]
 })
