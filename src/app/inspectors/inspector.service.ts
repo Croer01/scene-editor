@@ -4,7 +4,7 @@
 import {Injectable} from '@angular/core';
 import { Subject }    from 'rxjs/Subject';
 
-import {WorldElement} from "../scene-data/WorldElement";
+import {WorldElement} from "../scene-data";
 
 
 @Injectable()

@@ -2,10 +2,12 @@
  * Created by Adria on 21/08/2016.
  */
 import {Component, OnInit, OnDestroy, NgZone} from '@angular/core';
-import {SceneLoader} from "../scene-data/scene-loader.service";
-import {WorldElement} from "../scene-data/WorldElement";
 import {Subscription} from "rxjs/Subscription";
-import {InspectorService} from "./inspector.service";
+import {
+    SceneLoader,
+    WorldElement
+} from "../scene-data";
+import {InspectorService} from "./index";
 
 @Component({
     selector: 'inspector-elements',

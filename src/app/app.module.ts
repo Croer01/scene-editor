@@ -6,21 +6,28 @@ import {NgModuleMetadataType} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {routing} from './app.routing';
 
-import {SceneLoader} from "./scene-data/scene-loader.service";
-import {AppRootComponent}  from './app.component';
+import {
+    InspectorService,
+    InspectorComponentsComponent,
+    InspectorElementsComponent,
+    ElementSelectorComponent,
+    GenericComponentComponent
+} from "./inspectors";
+import {
+    SceneEditorComponent,
+    EmptyEditorComponent
+} from "./scene-editor";
+import {SceneLoader} from "./scene-data";
+import {AppRootComponent} from "./app.component";
 import {MainContentComponent} from "./main-content.component";
-import {InspectorComponentsComponent} from "./inspectors/inspector-components.component";
-import {InspectorElementsComponent} from "./inspectors/inspector-elements.component";
-import {SceneEditorComponent} from "./scene-editor/scene-editor.component";
-import {EmptyEditorComponent} from "./scene-editor/empty-editor.component";
-import {ElementSelectorComponent} from "./inspectors/element-selector.component";
-import {InspectorService} from "./inspectors/inspector.service";
-import {GenericComponentComponent} from "./inspectors/generic-component.component";
+import {ComponentPropertiesModule} from "./components-properties"
+
 
 @NgModule(<NgModuleMetadataType>{
     imports: [
         BrowserModule,
-        routing
+        routing,
+        ComponentPropertiesModule
     ],
     providers: [
         SceneLoader,

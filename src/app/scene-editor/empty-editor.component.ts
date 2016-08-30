@@ -2,7 +2,7 @@
  * Created by Adria on 20/08/2016.
  */
 import {Component} from '@angular/core';
-import {SceneLoader} from "../scene-data/scene-loader.service";
+import {SceneLoader} from "../scene-data";
 
 @Component({
     selector: 'empty-editor',

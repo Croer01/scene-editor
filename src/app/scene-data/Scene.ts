@@ -1,8 +1,8 @@
 /**
  * Created by Adria on 22/08/2016.
  */
-import {SceneData} from "./interfaces/SceneData";
-import {WorldElement} from "./WorldElement";
+import {SceneData} from "./shared";
+import {WorldElement} from "./index";
 
 export class Scene {
     private _name:string;

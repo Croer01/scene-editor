@@ -2,8 +2,10 @@
  * Created by Adria on 22/08/2016.
  */
 import {Route, Routes, RouterModule} from '@angular/router';
-import {SceneEditorComponent} from "./scene-editor/scene-editor.component";
-import {EmptyEditorComponent} from "./scene-editor/empty-editor.component";
+import {
+    SceneEditorComponent,
+    EmptyEditorComponent
+} from "./scene-editor";
 
 
 const appRoutes:Routes = [

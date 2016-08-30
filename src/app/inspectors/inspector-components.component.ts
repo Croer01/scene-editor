@@ -3,8 +3,8 @@
  */
 import {Component, OnDestroy} from '@angular/core';
 
-import {InspectorService} from "./inspector.service";
 import {Subscription} from "rxjs/Subscription";
+import {InspectorService} from "./index";
 
 @Component({
     selector: 'inspector-components',

@@ -1,8 +1,8 @@
 /**
  * Created by Adria on 25/08/2016.
  */
-import {Component, Input, Inject} from '@angular/core';
-import {WorldElement} from "../scene-data/WorldElement";
+import {Component, Input} from '@angular/core';
+import {WorldElement} from "../scene-data";
 import {InspectorService} from "./inspector.service";
 
 @Component({

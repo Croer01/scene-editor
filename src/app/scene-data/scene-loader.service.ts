@@ -7,7 +7,7 @@ import {Router} from '@angular/router';
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
 
 import electron = require('electron');
-import {Scene} from "./Scene";
+import {Scene} from "./index";
 const {ipcRenderer} = electron;
 
 @Injectable()

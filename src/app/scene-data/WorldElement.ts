@@ -1,9 +1,8 @@
-import {WorldElementData} from "./interfaces/WorldElementData";
-import {WorldElementComponent} from "./Component";
-import {ComponentData} from "./interfaces/ComponentsData";
 /**
  * Created by Adria on 22/08/2016.
  */
+import {WorldElementData} from "./shared";
+import {WorldElementComponent} from "./index";
 
 export class WorldElement {
     private _name:string;
