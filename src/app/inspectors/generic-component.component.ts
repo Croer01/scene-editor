@@ -3,32 +3,36 @@
  */
 import {
     Component,
+    ComponentMetadataType,
     Input,
     OnInit,
+    ViewChild,
     ViewContainerRef,
-    ComponentResolver
+    ComponentFactoryResolver
 } from '@angular/core';
-import {WorldElement} from "../scene-data";
+import {WorldElementComponent} from "../scene-data";
 import {StringPropertyComponent} from "../components-properties";
 
-@Component({
+@Component(<ComponentMetadataType>{
     selector: 'generic-component',
-    template: `<div>Parent element{{component.name}}</div>`
+    entryComponents:[StringPropertyComponent],
+    template: `<div #propertiesView></div>`
 })
 export class GenericComponentComponent implements OnInit {
-    @Input() private component:WorldElement;
+    @ViewChild('propertiesView', {read: ViewContainerRef}) private propertiesView : ViewContainerRef;
+    @Input() private component:WorldElementComponent;
     private propertiesTypes:any[];
 
-    constructor(private viewContainerRef:ViewContainerRef, private componentResolver:ComponentResolver) {
+    constructor(private componentResolver:ComponentFactoryResolver) {
         this.propertiesTypes = [
             StringPropertyComponent
         ];
     }
 
     ngOnInit():void {
-        this.componentResolver.resolveComponent(this.propertiesTypes[0]).then((factory) => {
-            var componentRef = this.viewContainerRef.createComponent(factory);
-            componentRef.instance.property = this.component.name;
-        });
+        let factory = this.componentResolver.resolveComponentFactory(this.propertiesTypes[0]);
+        let componentRef = this.propertiesView.createComponent(factory);
+        componentRef.instance["property"] = this.component.name;
+
     }
 }
