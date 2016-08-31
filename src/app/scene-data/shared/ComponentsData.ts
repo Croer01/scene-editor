@@ -3,5 +3,6 @@
  */
 
 export interface ComponentData {
+    className:string;
     name:string;
 }

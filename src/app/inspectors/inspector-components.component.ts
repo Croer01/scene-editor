@@ -5,14 +5,18 @@ import {Component, OnDestroy} from '@angular/core';
 
 import {Subscription} from "rxjs/Subscription";
 import {InspectorService} from "./index";
+import {WorldElement} from "../scene-data";
 
 @Component({
     selector: 'inspector-components',
     template: `<div>components of {{target?.name}}</div>
-<generic-component *ngFor="let component of target?.components" [component]="component"></generic-component>`
+<div *ngFor="let component of target?.components" [ngSwitch]="component.className">
+	<transform2D-component *ngSwitchCase="'Transform2D'" [component]="component"></transform2D-component>
+	<generic-component *ngSwitchDefault [component]="component"></generic-component>
+</div>`
 })
 export class InspectorComponentsComponent implements OnDestroy {
-    private target;
+    private target: WorldElement;
     private subscription:Subscription;
 
     constructor(private inspector:InspectorService) {

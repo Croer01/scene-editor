@@ -1,8 +1,7 @@
 /**
  * Created by Adria on 20/08/2016.
  */
-import {NgModule} from '@angular/core';
-import {NgModuleMetadataType} from '@angular/core';
+import {NgModule,NgModuleMetadataType} from '@angular/core';
 import {BrowserModule, Title} from '@angular/platform-browser';
 import {routing} from './app.routing';
 
@@ -11,7 +10,8 @@ import {
     InspectorComponentsComponent,
     InspectorElementsComponent,
     ElementSelectorComponent,
-    GenericComponentComponent
+    GenericComponentComponent,
+    Transfrom2DComponentComponent
 } from "./inspectors";
 import {
     SceneEditorComponent,
@@ -42,7 +42,8 @@ import {ComponentPropertiesModule} from "./components-properties"
         InspectorComponentsComponent,
         InspectorElementsComponent,
         ElementSelectorComponent,
-        GenericComponentComponent
+        GenericComponentComponent,
+        Transfrom2DComponentComponent
     ],
     bootstrap: [AppRootComponent]
 })

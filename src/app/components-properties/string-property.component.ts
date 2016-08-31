@@ -3,13 +3,16 @@
  */
 import {
     Component,
-    Input
+    Input,
+    Output,
+    EventEmitter
 } from '@angular/core';
 
 @Component({
-    selector: 'generic-component',
+    selector: 'string-property',
     template: `<div>{{property}}</div>`
 })
 export class StringPropertyComponent {
     @Input() private property:string;
+    @Output() private propertyChange:EventEmitter<string> = new EventEmitter<string>();
 }
